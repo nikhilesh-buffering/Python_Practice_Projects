@@ -3,7 +3,7 @@ i=0
 score=0
 cscore=0
 opt=[1,2,3]
-print("Welcome to Snake Water Gun game!\n")
+print("\nWelcome to Snake Water Gun game!\n")
 while(i<10):
     inp=int(input(f"{10-i} plays remaining.Press 1 for snake, 2 for water, 3 for gun\n"))
     cinp=random.choice(opt)
@@ -19,7 +19,11 @@ while(i<10):
         cscore=cscore+1
         score=score+0
         print(f"You lost. Your score is {score} and computer score is {cscore}\n")
-    i+=1
+    elif inp not in opt:
+        print("please enter a valid input!")
+        i=0
+    if inp in opt:
+        i+=1
 if cscore>score:
     print("Computer won the game. Better luck next time!")
 elif score>cscore:
